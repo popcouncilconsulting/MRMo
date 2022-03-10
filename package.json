@@ -2,7 +2,7 @@
   "name": "react-scheduler-firebase",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Gaurav7004/PopulationCouncilMeetingRoomScheduler",
+  "homepage": "https://gaurav7004.github.io/PopulationCouncilMeetingRoomScheduler/",
   "dependencies": {
     "@firebase/webchannel-wrapper": "^0.2.7",
     "firebase": "4.6.0",
