@@ -85,16 +85,14 @@ class Dnd extends Component {
     const nextEvents = [...events]
     if (idx > -1) {
       if(this.props.uid === event.ownerId){
-          if(this.props.start === event.start){
-            nextEvents.splice(idx, 1, updatedEvent)
-            UpdateEvents(event.id).update({start, end}).then(
-              this.setState({
-                events: nextEvents,
-              })
-          ).catch(error => {
-            console.error('Update error', error);
-          });
-        }
+        nextEvents.splice(idx, 1, updatedEvent)
+        UpdateEvents(event.id).update({start, end}).then(
+          this.setState({
+            events: nextEvents,
+          })
+        ).catch(error => {
+          console.error('Update error', error);
+        });
       }
     }
     else {
@@ -335,6 +333,7 @@ class Dnd extends Component {
               defaultView="week"
               // timeslots={2}
               // step={15}
+              views={['week', 'day', 'month']}
               defaultDate={new Date()}
               min={minTime}
               max={maxTime}

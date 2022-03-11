@@ -332,6 +332,7 @@ class Dnd extends Component {
               events={this.state.events}
               defaultView="week"
               defaultDate={new Date()}
+              views={['week', 'day', 'month']}
               min={minTime}
               max={maxTime}
               onEventDrop={this.moveEvent}
