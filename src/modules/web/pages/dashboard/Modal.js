@@ -1,7 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import email from './index';
 
 
 export default class Modal extends React.Component {
@@ -60,13 +59,6 @@ export default class Modal extends React.Component {
             floatingLabelText="Room"
             disabled="true"
             onChange={(event, newValue) => this.setState({event: {...this.state.event, room: 'Vichar'}})}
-          />
-
-          <TextField
-            defaultValue={email}
-            floatingLabelText="User"
-            disabled="true"
-            onChange={(event, newValue) => this.setState({event: {...this.state.event, user: email}})}
           />
 
         </div>
