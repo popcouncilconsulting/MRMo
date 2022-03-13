@@ -46,6 +46,7 @@ export const calendarInitialState = {
     end: new Date(2021, 4, 4, 8, 0, 0),
     company: '@pc',
     room: null,
+    user: null,
   },
   modalOpen: false,
   equipmentsOpen: false,

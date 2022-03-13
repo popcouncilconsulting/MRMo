@@ -34,14 +34,14 @@ class DraggableSidebarEvent extends Component {
   render() {
     let {connectDragSource, isDragging, event} = this.props;
     let EventWrapper = BigCalendar.components.eventWrapper;
-    let {title} = event;
+    let {description} = event;
 
 
     return (
       <EventWrapper event={event}>
         {connectDragSource(<div style={{opacity: isDragging ? 0.5 : 1}}>
           <Chip onClick={()=>{this.props.onClickEvent(event)}}
-          >{title}</Chip>
+          >{description}</Chip>
         </div>)}
       </EventWrapper>
 
