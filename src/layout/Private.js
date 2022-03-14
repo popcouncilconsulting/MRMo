@@ -15,7 +15,7 @@ const propTypes = {
 function PrivateLayout({ children }) {
   return<div>
     <AppBar
-      title="Population Council - Meeting Room Scheduler"
+      title="Meeting Room Blocking App"
       iconElementRight={topbarLogout}
       iconStyleRight={{
         display: 'flex',

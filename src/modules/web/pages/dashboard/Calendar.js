@@ -326,7 +326,9 @@ class Dnd extends Component {
           </div>
           <div style={{height: 500, width: 1100}} className={'col-10'}>
             
-            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Vichar (IHC)</h3>
+            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Vichar (IHC) </h3>
+
+            
 
             <DragAndDropCalendar
               events={this.state.events}

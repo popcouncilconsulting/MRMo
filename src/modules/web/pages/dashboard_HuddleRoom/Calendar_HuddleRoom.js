@@ -16,14 +16,14 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 
 //Actions
 import {
-  GetEventsAravali,
-  UpdateEventsAravali,
-  GetEquipmentsAravali,
-  UpdateEquipmentsAravali,
+  GetEventsHuddleRoom,
+  UpdateEventsHuddleRoom,
+  GetEquipmentsHuddleRoom,
+  UpdateEquipmentsHuddleRoom,
   GetPeople,
   UpdatePeople,
 } 
-from "../../../../helpers/db_aravali";
+from "../../../../helpers/db_HuddleRoom";
 //Styles
 import './styles/dragAndDrop/styles.css'
 import './styles/less/styles.css'
@@ -50,7 +50,7 @@ class Dnd extends Component {
     const newEquipments_Manthan = []
     const newPeople_Manthan = []
 
-    GetEventsAravali(this.props.uid).then(querySnapshot => {
+    GetEventsHuddleRoom(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
         newEvents_Manthan.push(doc.data())
         this.setState({
@@ -59,7 +59,7 @@ class Dnd extends Component {
       });
     })
     
-    GetEquipmentsAravali(this.props.uid).then(querySnapshot => {
+    GetEquipmentsHuddleRoom(this.props.uid).then(querySnapshot => {
       querySnapshot.forEach(doc => {
         newEquipments_Manthan.push(doc.data())
         this.setState({
@@ -86,7 +86,7 @@ class Dnd extends Component {
     if (idx > -1) {
       if(this.props.uid === event.ownerId){
         nextEvents.splice(idx, 1, updatedEvent)
-        UpdateEventsAravali(event.id).update({start, end}).then(
+        UpdateEventsHuddleRoom(event.id).update({start, end}).then(
           this.setState({
             events: nextEvents,
           })
@@ -101,7 +101,7 @@ class Dnd extends Component {
         updatedEvent = {...updatedEvent, id: newEventId, ownerId: this.props.uid}
         console.log(updatedEvent)
         nextEvents.push(updatedEvent)
-        UpdateEventsAravali(newEventId).set(updatedEvent).then(
+        UpdateEventsHuddleRoom(newEventId).set(updatedEvent).then(
           this.setState({
             events: nextEvents,
           })
@@ -129,7 +129,7 @@ class Dnd extends Component {
       })
     
 
-      UpdateEventsAravali(event.id).update({start, end}).then(
+      UpdateEventsHuddleRoom(event.id).update({start, end}).then(
         this.setState({
           events: nextEvents,
         })
@@ -145,7 +145,7 @@ class Dnd extends Component {
     const updatedEquipment = {...this.state.modal, id: newEquipmentId, ownerId: this.props.uid, title, desc, room}
     const nextEquipments = [...equipments]
     nextEquipments.push(updatedEquipment)
-    UpdateEquipmentsAravali(newEquipmentId).set(updatedEquipment).then(
+    UpdateEquipmentsHuddleRoom(newEquipmentId).set(updatedEquipment).then(
       this.setState({
         equipments: nextEquipments,
       })
@@ -180,7 +180,7 @@ class Dnd extends Component {
         : existingEvent, console.log(this.props.uid)
     })
 
-    UpdateEventsAravali(id).update({title, desc, room}).then(
+    UpdateEventsHuddleRoom(id).update({title, desc, room}).then(
       this.setState({
         events: nextEvents,
       })
@@ -198,7 +198,7 @@ class Dnd extends Component {
         ? {...existingEquipment, title, desc, room}
         : existingEquipment
     })
-    UpdateEquipmentsAravali(id).update({title, desc, room}).then(
+    UpdateEquipmentsHuddleRoom(id).update({title, desc, room}).then(
       this.setState({
         equipments: nextEquipments,
       })
@@ -231,7 +231,7 @@ class Dnd extends Component {
       return existingEvent.id !== id
     })
 
-    UpdateEventsAravali(id).delete().then(
+    UpdateEventsHuddleRoom(id).delete().then(
       this.setState({
         events: nextEvents,
       })
@@ -247,7 +247,7 @@ class Dnd extends Component {
       return existingEquipment.id !== id
     })
 
-    UpdateEquipmentsAravali(id).delete().then(
+    UpdateEquipmentsHuddleRoom(id).delete().then(
       this.setState({
         equipments: nextEquipments,
       })
@@ -326,7 +326,7 @@ class Dnd extends Component {
           </div>
           <div style={{height: 500, width: 1100}} className={'col-10'}>
 
-            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Aravali (NOIDA)</h3>
+            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Huddle Room (NOIDA)</h3>
             
             <DragAndDropCalendar
               events={this.state.events}
@@ -341,7 +341,7 @@ class Dnd extends Component {
               onSelectEvent={this.selectEvent}
             />
 
-            <Dialog title="Update Meeting For - Aravali (NOIDA)"
+            <Dialog title="Update Meeting For - HuddleRoom (NOIDA)"
                     modal={false}
 
                     open={this.state.modalOpen}
@@ -355,7 +355,7 @@ class Dnd extends Component {
 
               />
             </Dialog>
-            <Dialog title="Create Meeting For - Aravali (NOIDA)"
+            <Dialog title="Create Meeting For - HuddleRoom (NOIDA)"
                     modal={false}
                     open={this.state.equipmentsOpen}
                     onRequestClose={this.handleClose}

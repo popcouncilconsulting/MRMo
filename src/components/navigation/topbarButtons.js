@@ -9,6 +9,13 @@ const topbarButtons = (
           <FlatButton label="Login" style={{color: '#fff'}} />
         </Link>
     </span>
+
+    <span>
+        <Link to="/">
+          <FlatButton label="Home" style={{color: '#fff'}} />
+        </Link>
+    </span>
+
   </div>
 );
 

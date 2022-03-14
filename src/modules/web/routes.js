@@ -64,6 +64,16 @@ const routes = [
     }),
   },
 
+  {
+    path: '/dashboard_HuddleRoom',
+    exact: true,
+    auth: true,
+    component: Loadable({
+      loader: () => import('./pages/dashboard_HuddleRoom'),
+      loading: LoadingComponent,
+    }),
+  },
+
 ]
 
 export default routes

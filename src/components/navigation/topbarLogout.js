@@ -7,17 +7,11 @@ const topbarLogout = (
   <div>
     <Link to="/dashboard">
       <FlatButton label="Vichar" 
-      onClick={() => {
-        console.log('Vichar');
-      }}
       style={{color: '#fff'}} />
     </Link>
 
     <Link to="/dashboard_Manthan">
       <FlatButton label="Manthan"
-      onClick={() => {
-        console.log('Manthan');
-      }} 
       style={{color: '#fff'}} />
     </Link>
 
@@ -32,6 +26,11 @@ const topbarLogout = (
     <Link to="/dashboard_Saptagiri">
       <FlatButton label="Saptagiri" style={{color: '#fff'}} />
     </Link>
+
+    <Link to="/dashboard_HuddleRoom">
+      <FlatButton label="Huddle Room" style={{color: '#fff'}} />
+    </Link>
+
     <span>
     <FlatButton
       label="Logout"
