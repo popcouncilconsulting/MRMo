@@ -85,14 +85,16 @@ class Dnd extends Component {
     const nextEvents = [...events]
     if (idx > -1) {
       if(this.props.uid === event.ownerId){
-        nextEvents.splice(idx, 1, updatedEvent)
-        UpdateEvents(event.id).update({start, end}).then(
-          this.setState({
-            events: nextEvents,
-          })
-        ).catch(error => {
-          console.error('Update error', error);
-        });
+          if(this.props.start === event.start){
+            nextEvents.splice(idx, 1, updatedEvent)
+            UpdateEvents(event.id).update({start, end}).then(
+              this.setState({
+                events: nextEvents,
+              })
+          ).catch(error => {
+            console.error('Update error', error);
+          });
+        }
       }
     }
     else {
@@ -326,16 +328,13 @@ class Dnd extends Component {
           </div>
           <div style={{height: 500, width: 1100}} className={'col-10'}>
             
-            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Vichar (IHC) </h3>
-
-            
+            <h3 style={{textAlign: 'center', color: '#03A9F4'}} >Vichar (IHC)</h3>
 
             <DragAndDropCalendar
               events={this.state.events}
               defaultView="week"
               // timeslots={2}
               // step={15}
-              views={['week', 'day', 'month']}
               defaultDate={new Date()}
               min={minTime}
               max={maxTime}

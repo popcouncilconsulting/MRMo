@@ -36,6 +36,9 @@ export const calendarInitialState = {
 
   events_Vindhyanchal: [],
   equipments_Vindhyanchal: [],
+
+  events_HuddleRoom: [],
+  equipments_HuddleRoom: [],
   
   modal: {
     id: null,
